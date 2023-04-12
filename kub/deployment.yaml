@@ -8,6 +8,9 @@ metadata:
     k8s-object: deployment
 spec:
   template:
+    metadata:
+      labels:
+        app: argotest
     spec:
       containers:
         - name: nginx
@@ -17,3 +20,5 @@ spec:
     matchLabels:
       name: argotest
       k8s-object: pod
+      app: argotest
+
