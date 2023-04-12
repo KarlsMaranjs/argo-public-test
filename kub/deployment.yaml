@@ -5,6 +5,7 @@ metadata:
   namespace: argotest
   labels:
     name: argotest
+    app: argotest
     k8s-object: deployment
 spec:
   template:
@@ -17,3 +18,4 @@ spec:
     matchLabels:
       name: argotest
       k8s-object: pod
+      app: argotest
