@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: busybox-deployment
+  name: redis-deployment
   namespace: argotest
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: busybox-app
+      app: redis-app
   template:
     metadata:
       labels:
-        app: busybox-app
+        app: redis-app
     spec:
       containers:
-        - name: busybox-container
-          image: busybox
+        - name: redis-container
+          image: redis:latest
           ports:
             - containerPort: 8787
               name: http
