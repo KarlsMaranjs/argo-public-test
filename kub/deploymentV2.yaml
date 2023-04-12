@@ -3,25 +3,16 @@ kind: Deployment
 metadata:
   name: busybox-deployment
   namespace: argotest
-  labels:
-    name: busybox
-    k8s-object: pod
-    app: busybox
 spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: busybox-app
   template:
     metadata:
       labels:
-        name: busybox
-        k8s-object: pod
-        app: busybox
+        app: busybox-app
     spec:
       containers:
         - name: busybox
           image: busybox
-
-  selector:
-    matchLabels:
-      name: busybox
-      k8s-object: pod
-      app: busybox
-
