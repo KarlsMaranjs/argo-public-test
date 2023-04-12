@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argotest
+spec:
+  destination:
+    name: ''
+    namespace: argoapp
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: kub
+    repoURL: 'https://github.com/KarlsMaranjs/argotest.git'
+    targetRevision: HEAD
+  sources: []
+  project: argotest
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

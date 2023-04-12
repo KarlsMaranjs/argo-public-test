@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argotest
+  namespace: argotest
+  labels:
+    name: argotest
+    k8s-object: deployment
+spec:
+  template:
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+
+  selector:
+    matchLabels:
+      name: argotest
+      k8s-object: pod
