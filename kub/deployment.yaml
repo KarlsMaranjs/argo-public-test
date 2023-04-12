@@ -10,6 +10,8 @@ spec:
   template:
     metadata:
       labels:
+        name: argotest
+        k8s-object: pod
         app: argotest
     spec:
       containers:
