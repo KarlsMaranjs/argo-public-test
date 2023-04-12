@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: busybox-deployment
+  name: test-deployment
   namespace: argotest
-  labels:
-    app: busybox
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: busybox
+      app: test-app
   template:
     metadata:
       labels:
-        app: busybox
+        app: test-app
     spec:
       containers:
-        - name: busybox
-          image: busybox
-          command: ['sh', '-c', 'echo The app is running! && sleep 3600']
+        - name: test-container
+          image: nginx:alpine
+          ports:
+            - containerPort: 8787
+              name: http
+              protocol: TCP
