@@ -3,24 +3,17 @@ kind: Deployment
 metadata:
   name: busybox-deployment
   namespace: argotest
-  labels:
-      name: busybox-deployment
-      k8s-object: pod
-      app: busybox-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      name: busybox-deployment
-      k8s-object: pod
-      app: busybox-app
+      app: busybox
   template:
     metadata:
       labels:
-        name: busybox-deployment
-        k8s-object: pod
-        app: busybox-app
+        app: busybox
     spec:
       containers:
-        - name: busybox
+        - name: busybox-container
           image: busybox
+          command: ["sh", "-c", "while true; do echo 'BusyBox is running'; sleep 10; done"]
