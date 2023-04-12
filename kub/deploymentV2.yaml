@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argotest
+  namespace: argotest
+  labels:
+    name: busybox
+    k8s-object: pod
+    app: busybox
+spec:
+  template:
+    metadata:
+      labels:
+        name: busybox
+        k8s-object: pod
+        app: busybox
+    spec:
+      containers:
+        - name: busybox
+          image: busybox
+
+  selector:
+    matchLabels:
+      name: busybox
+      k8s-object: pod
+      app: busybox
+
