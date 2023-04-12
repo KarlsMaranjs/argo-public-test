@@ -15,5 +15,4 @@ spec:
 
   selector:
     matchLabels:
-      name: argotest
       k8s-object: pod
