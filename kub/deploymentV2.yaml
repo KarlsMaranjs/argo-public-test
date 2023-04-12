@@ -3,6 +3,10 @@ kind: Deployment
 metadata:
   name: busybox-deployment
   namespace: argotest
+  labels:
+      name: busybox-deployment
+      k8s-object: pod
+      app: busybox-app
 spec:
   replicas: 2
   selector:
